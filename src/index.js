@@ -24,7 +24,7 @@ class App extends React.Component {
         <div>
           Latitude is:{' '}
           {this.state.errorMsg
-            ? this.state.errorMsg
+            ? this.state.errorMsg + 'Please enable your location'
             : Math.floor(this.state.lat)}
           <SeasonDisplay />
         </div>
