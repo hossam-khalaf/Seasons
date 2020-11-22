@@ -19,15 +19,25 @@ class App extends React.Component {
   }
 
   render() {
+    if (this.state.errorMsg && !this.state.lat) {
+      return <div>Error: {this.state.errorMsg}</div>;
+    }
+    if (!this.state.errorMsg && this.state.lat) {
+      return <div>Latitude: {this.state.lat}</div>;
+    }
+    if (!this.state.errorMsg && !this.state.lat) {
+      return <div>Loading...</div>;
+    }
+
     return (
       <>
-        <div>
+        {/* <div>
           Latitude is:{' '}
           {this.state.errorMsg
             ? this.state.errorMsg + 'Please enable your location'
-            : Math.floor(this.state.lat)}
+            : Math.floor(this.state.lat): 'loading'}
           <SeasonDisplay />
-        </div>
+        </div> */}
       </>
     );
   }
